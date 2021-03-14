@@ -7,9 +7,17 @@ import { NgModule } from '@angular/core';
 import { PagesModule } from './pages/pages.module';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [AppComponent, NopagefoundComponent],
-  imports: [BrowserModule, AppRoutingModule, PagesModule, AuthModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    PagesModule,
+    AuthModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
