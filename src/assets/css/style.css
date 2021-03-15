@@ -7770,3 +7770,8 @@ File: scss
     overflow: hidden;
   }
 }
+
+#themecolors .selector{
+  cursor:pointer
+  
+}
