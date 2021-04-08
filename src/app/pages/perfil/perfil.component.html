@@ -1,0 +1,90 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Datos</h4>
+        <h6 class="card-subtitle"></h6>
+        <form
+          [formGroup]="formulario"
+          (submit)="actualizarUsuario()"
+          class="form-horizontal p-t-20"
+          autocomplete="off"
+        >
+          <div class="form-group row">
+            <label for="exampleInputuname3" class="col-sm-3 control-label"
+              >Nombre*</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="ti-user"></i></div>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputuname3"
+                  placeholder="Nombre"
+                  formControlName="nombre"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="exampleInputEmail3" class="col-sm-3 control-label"
+              >Email*</label
+            >
+            <div class="col-sm-9">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="ti-email"></i></div>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail3"
+                  placeholder="Email"
+                  formControlName="email"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row m-b-0">
+            <div class="offset-sm-3 col-sm-9">
+              <button
+                type="submit"
+                class="btn btn-success waves-effect waves-light"
+              >
+                Guardar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- upload -->
+  <div class="col-lg-6 col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Subir Imagen</h4>
+        <label for="input-file-now">Archivo</label>
+        <form [formGroup]="uploadForm" (ngSubmit)="submit()">
+          <!-- Select File -->
+          <input
+            type="file"
+            class="btn btn-success"
+            accept="image/*"
+            (change)="showPreview($event)"
+          />
+
+          <!-- Image Preview -->
+          <div class="imagePreview" *ngIf="imageURL && imageURL !== ''">
+            <img
+              class="previewImg"
+              [src]="imageURL"
+              [alt]="uploadForm.value.name"
+            />
+          </div>
+          <button class="btn btn-success" type="submit">Cargar..</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

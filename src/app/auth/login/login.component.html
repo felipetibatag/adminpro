@@ -8,7 +8,12 @@
 >
   <div class="login-box card">
     <div class="card-body">
-      <form class="form-horizontal form-material" id="loginform">
+      <form
+        class="form-horizontal form-material"
+        id="loginform"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
+      >
         <a href="javascript:void(0)" class="text-center db"
           ><img src="../assets/images/logo-icon.png" alt="Home" /><br /><img
             src="../assets/images/logo-text.png"
@@ -19,8 +24,8 @@
             <input
               class="form-control"
               type="text"
-              required=""
               placeholder="Username"
+              formControlName="email"
             />
           </div>
         </div>
@@ -29,9 +34,19 @@
             <input
               class="form-control"
               type="password"
-              required=""
               placeholder="Password"
+              formControlName="password"
             />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <p *ngIf="validacion('email')" class="text-danger">
+              El correo es necesario
+            </p>
+            <p *ngIf="validacion('password')" class="text-danger">
+              el password es necesario
+            </p>
           </div>
         </div>
         <div class="form-group row">
@@ -41,6 +56,7 @@
                 id="checkbox-signup"
                 type="checkbox"
                 class="filled-in chk-col-light-blue"
+                formControlName="remember"
               />
               <label for="checkbox-signup"> Remember me </label>
             </div>
@@ -66,29 +82,17 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
             <div class="social">
-              <a
-                href="javascript:void(0)"
-                class="btn btn-facebook"
-                data-toggle="tooltip"
-                title="Login with Facebook"
+              <a (click)="signInWithGoogle()" class="nav-link"
+                >Sign in with google</a
               >
-                <i aria-hidden="true" class="fa fa-facebook"></i>
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="btn btn-googleplus"
-                data-toggle="tooltip"
-                title="Login with Google"
-              >
-                <i aria-hidden="true" class="fa fa-google-plus"></i>
-              </a>
+              <!-- <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
             </div>
           </div>
         </div>
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
             Don't have an account?
-            <a href="pages-register2.html" class="text-primary m-l-5"
+            <a routerLink="/register" class="text-primary m-l-5"
               ><b>Sign Up</b></a
             >
           </div>
@@ -105,12 +109,7 @@
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input
-              class="form-control"
-              type="text"
-              required=""
-              placeholder="Email"
-            />
+            <input class="form-control" type="text" placeholder="Email" />
           </div>
         </div>
         <div class="form-group text-center m-t-20">

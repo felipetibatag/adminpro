@@ -7,11 +7,15 @@ import { ProgressComponent } from './progress/progress.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { GuardGuard } from '../auth/guards/guard.guard';
+import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 
 const routes: Routes = [
   {
     path: 'dashboard',
     component: PagesComponent,
+    canActivate: [GuardGuard],
     children: [
       { path: '', component: DashboardComponent, data: { titulo: 'Dasboard' } },
       {
@@ -34,7 +38,17 @@ const routes: Routes = [
         component: PromesasComponent,
         data: { titulo: 'Promesas' },
       },
+      {
+        path: 'perfil',
+        component: PerfilComponent,
+        data: { titulo: 'Perfil' },
+      },
       { path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs' } },
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
+        data: { titulo: 'Usuario de aplicación' },
+      },
     ],
   },
 ];

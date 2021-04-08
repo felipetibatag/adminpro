@@ -7771,7 +7771,16 @@ File: scss
   }
 }
 
-#themecolors .selector{
-  cursor:pointer
-  
+#themecolors .selector {
+  cursor: pointer;
+}
+
+.previewImg {
+  width: 200px;
+  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.w75 {
+  width: 50px;
 }

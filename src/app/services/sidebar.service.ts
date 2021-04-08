@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UsuarioService } from './usuario.service';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,24 @@ export class SidebarService {
         {
           titulo: 'Rjxs',
           url: 'rxjs',
+        },
+      ],
+    },
+    {
+      titulo: 'Mantenimiento',
+      icono: 'mdi mdi-folder',
+      submenu: [
+        {
+          titulo: 'Usuarios',
+          url: 'usuarios',
+        },
+        {
+          titulo: 'Hospitales',
+          url: 'hospitales',
+        },
+        {
+          titulo: 'Médicos',
+          url: 'medicos',
         },
       ],
     },
